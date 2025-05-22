@@ -195,9 +195,9 @@ function ipt_kb_widgets_init() {
 		'name'          => __( 'General Sidebar', 'ipt_kb' ),
 		'id'            => 'sidebar-4',
 		'description'   => __( 'Shows up everywhere except the category archive pages and single posts.', 'ipt_kb' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s card">',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s card mb-4 shadow-sm">',
 		'after_widget'  => '</div></aside>',
-		'before_title'  => '<div class="card-header"><h3 class="widget-title card-title">',
+		'before_title'  => '<div class="card-header bg-light"><h3 class="widget-title card-title mb-0 h5">',
 		'after_title'   => '</h3></div><div class="card-body">',
 	) );
 	register_sidebar( array(
