@@ -19,17 +19,20 @@ $sub_categories = get_categories( array(
 	'number' => '',
 ) );
 ?>
+<div class="container">
+	<div class="row">
+		<section id="primary" class="content-area<?php if ( $cat->parent != '0' || empty( $sub_categories ) ) echo ' col-md-8'; else echo ' col-12'; ?>">
+			<?php get_search_form(); ?>
+			<main id="main" class="site-main <?php echo ( $cat->parent == '0' ? 'ipt-kb-parent' : 'ipt-kb-child' ); ?>" role="main">
+				<?php if ( $cat->parent == '0' && ! empty( $sub_categories ) ) : ?>
+				<?php get_template_part( 'category-templates/category', 'parent' ); // This is a parent category ?>
+				<?php else : ?>
+				<?php get_template_part( 'category-templates/category', 'child' ); // This is a parent category ?>
+				<?php endif; ?>
+			</main><!-- #main -->
+		</section><!-- #primary -->
 
-	<section id="primary" class="content-area<?php if ( $cat->parent != '0' || empty( $sub_categories ) ) echo ' col-md-8'; ?>">
-		<?php get_search_form(); ?>
-		<main id="main" class="site-main <?php echo ( $cat->parent == '0' ? 'ipt-kb-parent' : 'ipt-kb-child' ); ?>" role="main">
-			<?php if ( $cat->parent == '0' && ! empty( $sub_categories ) ) : ?>
-			<?php get_template_part( 'category-templates/category', 'parent' ); // This is a parent category ?>
-			<?php else : ?>
-			<?php get_template_part( 'category-templates/category', 'child' ); // This is a parent category ?>
-			<?php endif; ?>
-		</main><!-- #main -->
-	</section><!-- #primary -->
-
-<?php if ( $cat->parent != '0' || empty( $sub_categories ) ) get_sidebar(); ?>
+		<?php if ( $cat->parent != '0' || empty( $sub_categories ) ) get_sidebar(); ?>
+	</div><!-- .row -->
+</div><!-- .container -->
 <?php get_footer(); ?>
