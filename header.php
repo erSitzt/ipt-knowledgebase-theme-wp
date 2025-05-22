@@ -23,44 +23,31 @@ global $ipt_theme_op_settings;
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
-		<nav class="navbar navbar-default navbar-static-top main-navigation" role="navigation" id="site_navigation">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light main-navigation" role="navigation" id="site_navigation">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-						<span class="sr-only"><?php _e( 'Toggle navigation', 'ipt_mst' ); ?></span>
-						<i class="ipticm ipt-icomoon-menu2"></i>
-					</button>
-					<?php if ( isset( $ipt_theme_op_settings ) && $ipt_theme_op_settings['navigation']['search_bar'] == true ) : ?>
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-navbar-search">
-						<span class="sr-only"><?php _e( 'Toggle search', 'ipt_mst' ); ?></span>
-						<i class="ipticm ipt-icomoon-search"></i>
-					</button>
-					<?php endif; ?>
-					<?php if ( isset( $ipt_theme_op_settings ) && $ipt_theme_op_settings['navigation']['show_login'] == true ) : ?>
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-navbar-user">
-						<span class="sr-only"><?php _e( 'Toggle User', 'ipt_mst' ); ?></span>
-						<i class="ipticm ipt-icomoon-user"></i>
-					</button>
-					<?php endif; ?>
-					<a class="navbar-brand" href="<?php echo home_url( '/' ); ?>">
+				<a class="navbar-brand" href="<?php echo home_url( '/' ); ?>">
 						<?php if ( get_header_image() ) : ?>
 						<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
 						<?php else : ?>
 						<?php bloginfo( 'name' ); ?>
 						<?php endif; // End header image check. ?>
 					</a>
-				</div>
+				
+				<!-- Add navbar toggler -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse navbar-left navbar-ex1-collapse">
+				<div class="collapse navbar-collapse" id="navbarNav">
 					<?php
 					wp_nav_menu( array(
 						'menu'              => 'primary',
 						'theme_location'    => 'primary',
 						'depth'             => 4,
 						'container'         => '',
-						'menu_class'        => 'nav navbar-nav',
+						'menu_class'        => 'navbar-nav me-auto mb-2 mb-lg-0',
 						'fallback_cb'       => 'IPT_Bootstrap_Walker_Nav_Menu::fallback',
 						'walker'            => new IPT_Bootstrap_Walker_Nav_Menu())
 					);

@@ -86,7 +86,7 @@ $main_categories = get_categories( array(
 							<?php foreach ( $sub_categories as $scat ) : ?>
 							<?php $sterm_meta = get_option( 'ipt_kb_category_meta_' . $scat->term_id, array() ); ?>
 							<a href="<?php echo esc_url( get_term_link( $scat, 'category' ) ); ?>" class="list-group-item">
-								<span class="badge"><?php echo $scat->count; ?></span>
+								<span class="badge bg-secondary rounded-pill"><?php echo $scat->count; ?></span>
 								<?php if ( isset( $sterm_meta['icon_class'] ) && '' != $sterm_meta['icon_class'] ) : ?>
 								<i class="glyphicon <?php echo esc_attr( $sterm_meta['icon_class'] ); ?>"></i>
 								<?php else : ?>
@@ -139,11 +139,11 @@ $main_categories = get_categories( array(
 				) );
 				?>
 				<div class="col-md-6">
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							<h3 class="panel-title"><i class="glyphicon glyphicon-calendar"></i>&nbsp;&nbsp;<?php _e( 'Recent articles', 'ipt_kb' ); ?></h3>
+					<div class="card bg-info bg-opacity-25 text-dark mb-4">
+						<div class="card-header">
+							<h3 class="card-title"><i class="fa-regular fa-calendar"></i>&nbsp;&nbsp;<?php _e( 'Recent articles', 'ipt_kb' ); ?></h3>
 						</div>
-						<div class="panel-body">
+						<div class="card-body">
 							<div class="list-group">
 								<?php if ( $recent_posts->have_posts() ) : ?>
 									<?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
@@ -176,11 +176,11 @@ $main_categories = get_categories( array(
 				$popular_query = new WP_Query( $args );
 				?>
 				<div class="col-md-6">
-					<div class="panel panel-success">
-						<div class="panel-heading">
-							<h3 class="panel-title"><i class="glyphicon glyphicon-fire"></i>&nbsp;&nbsp;<?php _e( 'Popular articles', 'ipt_kb' ); ?></h3>
+					<div class="card bg-success bg-opacity-25 text-dark mb-4">
+						<div class="card-header">
+							<h3 class="card-title"><i class="fa-solid fa-fire"></i>&nbsp;&nbsp;<?php _e( 'Popular articles', 'ipt_kb' ); ?></h3>
 						</div>
-						<div class="panel-body">
+						<div class="card-body">
 							<div class="list-group">
 								<?php if ( $popular_query->have_posts() ) : ?>
 									<?php while ( $popular_query->have_posts() ) : $popular_query->the_post(); ?>

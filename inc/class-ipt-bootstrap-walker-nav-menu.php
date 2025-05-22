@@ -186,7 +186,7 @@ if ( ! class_exists( 'IPT_Bootstrap_Walker_Nav_Menu' ) ) :
 			 */
 			if ( in_array( 'menu-item-has-children', $classes ) && $depth == 0 ) {
 				$item_output .= '</li><li class="dropdown dropdown-split-right">';
-				$item_output .= '<a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><i class="fa fa-caret-down"></i></a>';
+				$item_output .= '<a href="#" data-bs-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><i class="fa fa-caret-down"></i></a>';
 			}
 
 			/**

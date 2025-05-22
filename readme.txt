@@ -1,9 +1,10 @@
 === WP Knowledge Base Theme ===
 Contributors: swashata, iPanelThemes
-Tags: two-columns, flexible-width, custom-header, custom-menu, featured-images, gray, light
-Requires at least: 3.5
-Tested up to: 3.7
-Stable tag: 1.5.1
+Tags: custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, one-column, two-columns, right-sidebar, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
+Requires at least: 5.0
+Tested up to: 6.5
+Requires PHP: 7.4
+Stable tag: 1.7.1
 
 A responsive bootstrap based theme for maintaining multi product knowledge base on your WordPress site.
 
@@ -78,4 +79,16 @@ Copyright: Edward McIntyre - @twittem
 Google Fonts (Roboto and Oswald) - ​http://www.google.com/fonts/
 License: Roboto font and Oswald font are distributed under the terms of the Apache License, version 2.0 and SIL Open Font License, 1.1 respectively
 Copyright: Google Fonts, http://www.google.com/fonts/attribution
+
+== Changelog ==
+
+= 1.7.1 =
+* Added WordPress 6.x+ compatibility
+* Added PHP 8.3+ compatibility
+* Updated deprecated function calls (create_function)
+* Added block editor support with custom styles
+* Updated theme tags and metadata for WordPress.org directory
+* Updated Bootstrap from v3 to v5
+* Updated FontAwesome from v4 to v6
+* Added Bootstrap 3 to 5 compatibility layer
 

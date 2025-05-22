@@ -881,7 +881,7 @@ function ipt_kb_navbar_login() {
 	<?php if ( ! is_user_logged_in() ) : ?>
 	<ul class="nav navbar-nav navbar-right">
 		<li class="dropdown<?php if ( $additional_items != '' ) echo ' dropdown-split-left'; ?>">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
 				<?php _e( 'Login', 'ipt_kb' ); ?><?php if ( $additional_items == '' ) echo ' <span class="caret"></span>'; ?>
 			</a>
 			<div class="dropdown-menu navmodal-login">
@@ -890,7 +890,7 @@ function ipt_kb_navbar_login() {
 		</li>
 		<?php if ( $additional_items != '' ) : ?>
 		<li class="dropdown dropdown-split-right">
-			<a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><i class="ipticm ipt-icomoon-caret-down"></i></a>
+			<a href="#" data-bs-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><i class="ipticm ipt-icomoon-caret-down"></i></a>
 			<ul class="dropdown-menu dropdown-menu-right" role="menu">
 				<?php echo $additional_items; ?>
 			</ul>
@@ -900,7 +900,7 @@ function ipt_kb_navbar_login() {
 	<?php else : ?>
 	<ul class="nav navbar-nav navbar-right">
 		<li class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
 				<?php printf( __( 'Hi %1$s', 'ipt_kb' ), $current_user->user_login ); ?> <span class="caret"></span>
 			</a>
 			<ul class="dropdown-menu">

@@ -89,9 +89,9 @@ class IPT_KB_KnowledgeBase_Widget extends WP_Widget {
 	protected function print_category( $cat, $sep = '' ) {
 		$term_meta = get_option( 'ipt_kb_category_meta_' . $cat->term_id, array() );
 
-		echo '<a href="' . esc_url( get_category_link( $cat->term_id ) ) . '" class="list-group-item' . ( is_category( $cat->term_id ) || ( is_single() && has_category( $cat->term_id ) ) ? ' active' : '' ) . '">';
+		echo '<a href="' . esc_url( get_category_link( $cat->term_id ) ) . '" class="list-group-item d-flex justify-content-between align-items-center' . ( is_category( $cat->term_id ) || ( is_single() && has_category( $cat->term_id ) ) ? ' active' : '' ) . '">';
 
-		echo '<span class="badge">' . ipt_kb_total_cat_post_count( $cat->term_id ) . '</span>';
+		echo '<span class="badge bg-primary rounded-pill">' . ipt_kb_total_cat_post_count( $cat->term_id ) . '</span>';
 
 		echo $sep;
 
@@ -144,4 +144,4 @@ class IPT_KB_KnowledgeBase_Widget extends WP_Widget {
 	}
 }
 
-add_action( 'widgets_init', create_function( '', "register_widget( 'IPT_KB_KnowledgeBase_Widget' );" ) );
+add_action( 'widgets_init', function() { register_widget( 'IPT_KB_KnowledgeBase_Widget' ); } );

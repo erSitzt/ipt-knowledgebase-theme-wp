@@ -9,7 +9,7 @@
  * Set the version
  */
 global $ipt_kb_version, $ipt_theme_op_settings;
-$ipt_kb_version = '1.7.0';
+$ipt_kb_version = '1.7.1';
 if ( ! is_array( $ipt_theme_op_settings ) ) {
 	$ipt_theme_op_settings = array();
 }
@@ -19,6 +19,23 @@ if ( ! is_array( $ipt_theme_op_settings ) ) {
  */
 if ( ! isset( $content_width ) )
 	$content_width = 640; /* pixels */
+
+/**
+ * Enqueue block editor assets
+ */
+if ( ! function_exists( 'ipt_kb_block_editor_assets' ) ) :
+function ipt_kb_block_editor_assets() {
+	global $ipt_kb_version;
+	// Enqueue block editor styles
+	wp_enqueue_style( 
+		'ipt-kb-editor-style', 
+		get_template_directory_uri() . '/css/editor-style.css',
+		array(),
+		$ipt_kb_version
+	);
+}
+endif;
+add_action( 'enqueue_block_editor_assets', 'ipt_kb_block_editor_assets' );
 
 if ( ! function_exists( 'ipt_kb_setup' ) ) :
 /**
@@ -79,12 +96,77 @@ function ipt_kb_setup() {
 
 	// Add HTML5
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form' ) );
+	
+	// Add support for block styles
+	add_theme_support( 'wp-block-styles' );
+	
+	// Add support for full and wide align blocks
+	add_theme_support( 'align-wide' );
+	
+	// Add support for responsive embeds
+	add_theme_support( 'responsive-embeds' );
+	
+	// Add support for custom editor font sizes
+	add_theme_support( 'editor-font-sizes', array(
+		array(
+			'name' => __( 'Small', 'ipt_kb' ),
+			'size' => 14,
+			'slug' => 'small'
+		),
+		array(
+			'name' => __( 'Normal', 'ipt_kb' ),
+			'size' => 16,
+			'slug' => 'normal'
+		),
+		array(
+			'name' => __( 'Large', 'ipt_kb' ),
+			'size' => 20,
+			'slug' => 'large'
+		),
+		array(
+			'name' => __( 'Huge', 'ipt_kb' ),
+			'size' => 24,
+			'slug' => 'huge'
+		)
+	));
+	
+	// Add support for custom editor color palette
+	add_theme_support( 'editor-color-palette', array(
+		array(
+			'name'  => __( 'Primary', 'ipt_kb' ),
+			'slug'  => 'primary',
+			'color' => '#428bca',
+		),
+		array(
+			'name'  => __( 'Success', 'ipt_kb' ),
+			'slug'  => 'success',
+			'color' => '#5cb85c',
+		),
+		array(
+			'name'  => __( 'Info', 'ipt_kb' ),
+			'slug'  => 'info',
+			'color' => '#5bc0de',
+		),
+		array(
+			'name'  => __( 'Warning', 'ipt_kb' ),
+			'slug'  => 'warning',
+			'color' => '#f0ad4e',
+		),
+		array(
+			'name'  => __( 'Danger', 'ipt_kb' ),
+			'slug'  => 'danger',
+			'color' => '#d9534f',
+		),
+	));
 }
 endif; // ipt_kb_setup
 add_action( 'after_setup_theme', 'ipt_kb_setup' );
 
 /**
  * Backward compatibility
+ * 
+ * Note: This is only for extremely old WordPress versions (pre-4.1)
+ * Modern WordPress uses the 'title-tag' theme support added above
  */
 if ( ! function_exists( '_wp_render_title_tag' ) ) :
     function ipt_kb_render_title() {
@@ -104,28 +186,28 @@ function ipt_kb_widgets_init() {
 		'name'          => __( 'Knowledge Base Sidebar', 'ipt_kb' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Shows up only on category archive pages and single posts.', 'ipt_kb' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-default">',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s card">',
 		'after_widget'  => '</div></aside>',
-		'before_title'  => '<div class="panel-heading"><h3 class="widget-title panel-title">',
-		'after_title'   => '</h3></div><div class="panel-body">',
+		'before_title'  => '<div class="card-header"><h3 class="widget-title card-title">',
+		'after_title'   => '</h3></div><div class="card-body">',
 	) );
 	register_sidebar( array(
 		'name'          => __( 'General Sidebar', 'ipt_kb' ),
 		'id'            => 'sidebar-4',
 		'description'   => __( 'Shows up everywhere except the category archive pages and single posts.', 'ipt_kb' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-default">',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s card">',
 		'after_widget'  => '</div></aside>',
-		'before_title'  => '<div class="panel-heading"><h3 class="widget-title panel-title">',
-		'after_title'   => '</h3></div><div class="panel-body">',
+		'before_title'  => '<div class="card-header"><h3 class="widget-title card-title">',
+		'after_title'   => '</h3></div><div class="card-body">',
 	) );
 	register_sidebar( array(
 		'name'          => __( 'bbPress Sidebar', 'ipt_kb' ),
 		'id'            => 'sidebar-5',
 		'description'   => __( 'Shows up on bbPress forums and topics.', 'ipt_kb' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-default">',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s card">',
 		'after_widget'  => '</div></aside>',
-		'before_title'  => '<div class="panel-heading"><h3 class="widget-title panel-title">',
-		'after_title'   => '</h3></div><div class="panel-body">',
+		'before_title'  => '<div class="card-header"><h3 class="widget-title card-title">',
+		'after_title'   => '</h3></div><div class="card-body">',
 	) );
 	register_sidebar( array(
 		'name'          => __( 'Footer Large', 'ipt_kb' ),
@@ -175,16 +257,15 @@ function ipt_kb_scripts() {
 	// Main stylesheet
 	wp_enqueue_style( 'ipt_kb-style', get_stylesheet_uri(), array(), $ipt_kb_version );
 
-	// Bootstrap
-	wp_enqueue_style( 'ipt_kb-bootstrap', get_template_directory_uri() . '/lib/bootstrap/css/bootstrap.min.css', array(), $ipt_kb_version );
-	wp_enqueue_style( 'ipt_kb-bootstrap-theme', get_template_directory_uri() . '/lib/bootstrap/css/bootstrap-theme.min.css', array(), $ipt_kb_version );
+	// Bootstrap 5
+	wp_enqueue_style( 'ipt_kb-bootstrap', get_template_directory_uri() . '/lib/bootstrap5/css/bootstrap.min.css', array(), $ipt_kb_version );
 
 	// Icomoon
 	wp_enqueue_style( 'ipt-kb-icomoon', get_template_directory_uri() . '/lib/icomoon/style.css', array(), $ipt_kb_version );
-	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/lib/fontawesome/css/font-awesome.min.css', array(), $ipt_kb_version );
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/lib/fontawesome6/css/all.min.css', array(), $ipt_kb_version );
 
 	// Now the JS
-	wp_enqueue_script( 'ipt_kb-bootstrap', get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js', array( 'jquery' ), $ipt_kb_version );
+	wp_enqueue_script( 'ipt_kb-bootstrap', get_template_directory_uri() . '/lib/bootstrap5/js/bootstrap.bundle.min.js', array( 'jquery' ), $ipt_kb_version );
 	wp_enqueue_script( 'ipt_kb-bootstrap-jq', get_template_directory_uri() . '/js/jquery.ipt-kb-bootstrap.js', array( 'jquery' ), $ipt_kb_version );
 
 	wp_enqueue_script( 'ipt_kb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), $ipt_kb_version, true );
@@ -200,8 +281,11 @@ function ipt_kb_scripts() {
 	// Load the sticky kit
 	wp_enqueue_script( 'ipt-kb-sticky-kit', get_template_directory_uri() . '/lib/sticky-kit/jquery.sticky-kit.min.js', array( 'jquery' ), $ipt_kb_version );
 
+	// Load Bootstrap 3 to 5 compatibility script 
+	wp_enqueue_script( 'bootstrap3-to-5-compat', get_template_directory_uri() . '/js/bootstrap3-to-5-compat.js', array( 'jquery', 'ipt_kb-bootstrap' ), $ipt_kb_version );
+	
 	// Load the theme js
-	wp_enqueue_script( 'ipt-kb-js', get_template_directory_uri() . '/js/ipt-kb.js', array( 'jquery' ), $ipt_kb_version );
+	wp_enqueue_script( 'ipt-kb-js', get_template_directory_uri() . '/js/ipt-kb.js', array( 'jquery', 'bootstrap3-to-5-compat' ), $ipt_kb_version );
 	wp_localize_script( 'ipt-kb-js', 'iptKBJS', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		'ajax_error' => __( 'Oops, some problem to connect. Try again?', 'ipt_kb' ),

@@ -164,7 +164,7 @@ class IPT_KB_Affix_Widget extends WP_Widget {
 		}
 		?>
 <div class="text-muted ipt-kb-toc">
-	<a href="#ipt-kb-toc-scrollspy" title="<?php esc_attr_e( 'Click to show/hide table of contents.', 'ipt_kb' ); ?>" class="bstooltip pull-right btn btn-xs btn-default accordion-toggle ipt-kb-sub-toc-toggle" data-toggle="collapse"><i class="glyphicon ipt-icomoon-menu"></i></a>
+	<a href="#ipt-kb-toc-scrollspy" title="<?php esc_attr_e( 'Click to show/hide table of contents.', 'ipt_kb' ); ?>" class="bstooltip float-end btn btn-sm btn-secondary accordion-toggle ipt-kb-sub-toc-toggle" data-bs-toggle="collapse"><i class="fa fa-bars"></i></a>
 	<h4>
 		<?php _e( 'Table of Contents', 'ipt_kb' ); ?>
 	</h4>
@@ -195,7 +195,7 @@ class IPT_KB_Affix_Widget extends WP_Widget {
 		?>
 <?php if ( $do_posts ) : ?>
 <div class="list-group-item <?php echo $btn_class; ?>">
-<a href="#ipt-kb-affix-active-post" title="<?php esc_attr_e( 'Click to show/hide articles under this category.', 'ipt_kb' ); ?>" class="bstooltip accordion-toggle pull-right btn btn-default btn-xs text-center ipt-kb-sub-cat-toggle" data-toggle="collapse">
+<a href="#ipt-kb-affix-active-post" title="<?php esc_attr_e( 'Click to show/hide articles under this category.', 'ipt_kb' ); ?>" class="bstooltip accordion-toggle float-end btn btn-secondary btn-sm text-center ipt-kb-sub-cat-toggle" data-bs-toggle="collapse">
 	<i class="glyphicon ipt-icomoon-enter"></i>
 </a>
 <?php if ( isset( $sterm_meta['icon_class'] ) && '' != $sterm_meta['icon_class'] ) : ?>
@@ -309,7 +309,7 @@ class IPT_KB_Affix_Widget extends WP_Widget {
 	}
 }
 
-add_action( 'widgets_init', create_function( '', "register_widget( 'IPT_KB_Affix_Widget' );" ) );
+add_action( 'widgets_init', function() { register_widget( 'IPT_KB_Affix_Widget' ); } );
 
 /**
  * TOC content filter

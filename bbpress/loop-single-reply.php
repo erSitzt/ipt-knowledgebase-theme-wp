@@ -14,7 +14,7 @@
 	<div class="bbp-meta">
 		<?php do_action( 'bbp_theme_before_reply_admin_links' ); ?>
 		<div class="btn-group bbp-admin-link-dropdown pull-right">
-			<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"> <?php _e( 'Actions', 'ipt_kb' ); ?> <span class="caret"></span></button>
+			<button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown"> <?php _e( 'Actions', 'ipt_kb' ); ?> <span class="caret"></span></button>
 			<?php bbp_reply_admin_links(); ?>
 		</div>
 		<?php do_action( 'bbp_theme_after_reply_admin_links' ); ?>

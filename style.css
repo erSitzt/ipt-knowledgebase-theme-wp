@@ -3,53 +3,44 @@ Theme Name: WP Knowledge Base
 Theme URI: http://ipanelthemes.com/kb/wp-knowledge-base-theme/
 Author: swashata
 Author URI: http://www.swashata.com/
-Description: A responsive bootstrap based theme for maintaining multi product knowledge base on your WordPress site. Easily create knowledge bases with just posts and categories. You can also have images, support forum links and/or icons assigned to knowledge bases. The theme also has a comprehensive documentation which can be found at the ThemeURI ( http://ipanelthemes.com/kb/wp-knowledge-base-theme/ ). Requires atleast WordPress 3.5 due to jQuery dependency of bootstrap 3.0. Support for bbPress is added officially to version 1.6.0.
-Version: 1.7.0
+Description: A responsive bootstrap based theme for maintaining multi product knowledge base on your WordPress site. Easily create knowledge bases with just posts and categories. You can also have images, support forum links and/or icons assigned to knowledge bases. The theme also has a comprehensive documentation which can be found at the ThemeURI ( http://ipanelthemes.com/kb/wp-knowledge-base-theme/ ). Compatible with WordPress 6.x+ and PHP 8.3+. Support for bbPress is added officially to version 1.6.0.
+Version: 1.7.1
 License: GNU General Public License
 License URI: license.txt
 Text Domain: ipt_kb
 Domain Path: /languages/
-Tags: gray, light, white, two-columns, right-sidebar, fluid-layout, responsive-layout, custom-header, custom-menu, featured-images, threaded-comments, translation-ready
-
+Tags: custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, one-column, two-columns, right-sidebar, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
+Requires at least: 5.0
+Tested up to: 6.5
+Requires PHP: 7.4
 WP Knowledge Base WordPress theme, Copyright (C) 2013-2015 iPanelThemes.com
 WP Knowledge Base WordPress theme is licensed under the GPL.
-
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
-
 ===Bundled Resources===
 Bootstrap - ​http://getbootstrap.com/
 License: Distributed under the terms of the Apache 2.0 license.
 Copyright: Twitter, http://twitter.com
-
 Icomoon Icon Packs - ​http://icomoon.io/#icons
 License: Distributed under the terms of the GPL
 Copyright: IcoMoon, http://icomoon.io/
-
 Sticky-Kit - ​http://leafo.net/sticky-kit/
 License: Distributed under the terms of the WTFPL
 Copyright: Leaf Corcoran, http://leafo.net
-
 wp-bootstrap-navwalker - ​https://github.com/twittem/wp-bootstrap-navwalker
 License: Distributed under the terms of the GPL-2.0+
 Copyright: Edward McIntyre - @twittem
-
 Google Fonts (Roboto and Oswald) - ​http://www.google.com/fonts/
 License: Roboto font and Oswald font are distributed under the terms of the Apache License, version 2.0 and SIL Open Font License, 1.1 respectively
 Copyright: Google Fonts, http://www.google.com/fonts/attribution
-
  WP Knowledge Base is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
-
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 and Blueprint http://www.blueprintcss.org/
 */
-
-
 /* =Reset
 -------------------------------------------------------------- */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -117,7 +108,6 @@ a:active { /* Improves readability when focused and also mouse hovered in all br
 a img {
 	border: 0;
 }
-
 /* =Global
 ----------------------------------------------- */
 body {
@@ -133,7 +123,6 @@ textarea {
 	font-size: 1.6rem;
 	line-height: 1.5;
 }
-
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
@@ -144,7 +133,6 @@ hr {
 	height: 1px;
 	margin-bottom: 1.5em;
 }
-
 /* Text elements */
 p {
 	margin-bottom: 1.5em;
@@ -250,12 +238,10 @@ button,
 input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 }
-
 button,
 input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 }
-
 .entry-content input[type="reset"],
 .entry-content input[type="submit"] {
 	border: 1px solid #ccc;
@@ -270,19 +256,16 @@ input {
 	line-height: 1;
 	padding: .6em 1em .4em;
 }
-
 input[type="reset"]:hover,
 input[type="submit"]:hover {
 	border-color: #ccc #bbb #aaa #bbb;
 }
-
 .entry-content input[type="reset"]:focus,
 .entry-content input[type="submit"]:focus,
 .entry-content input[type="reset"]:active,
 .entry-content input[type="submit"]:active {
 	border-color: #aaa #bbb #bbb #bbb;
 }
-
 input[type="checkbox"],
 input[type="radio"] {
 	box-sizing: border-box; /* Addresses box sizing set to content-box in IE8/9 */
@@ -336,7 +319,6 @@ textarea {
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
 }
-
 /* Alignment */
 .alignleft {
 	display: inline;
@@ -353,13 +335,11 @@ textarea {
 	display: block;
 	margin: 0 auto;
 }
-
 /* Text meant only for screen readers */
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
 }
-
 .screen-reader-text:hover,
 .screen-reader-text:active,
 .screen-reader-text:focus {
@@ -380,7 +360,6 @@ textarea {
 	width: auto;
 	z-index: 100000; /* Above WP toolbar */
 }
-
 /* Clearing */
 .clear:before,
 .clear:after,
@@ -397,7 +376,6 @@ textarea {
 	content: '';
 	display: table;
 }
-
 .clear:after,
 .entry-content:after,
 .comment-content:after,
@@ -406,7 +384,6 @@ textarea {
 .site-footer:after {
 	clear: both;
 }
-
 /* =Header
 ----------------------------------------------- */
 .site-title {
@@ -417,7 +394,6 @@ textarea {
 .site-title a {
 	color: #777;
 }
-
 /* =Menu
 ----------------------------------------------- */
 .main-navigation {
@@ -430,10 +406,8 @@ textarea {
 .main-navigation .main-navigation-search-form {
 	width: 250px;
 }
-
 /* =Content
 ----------------------------------------------- */
-
 .sticky {
 }
 .hentry {
@@ -456,8 +430,6 @@ textarea {
 	clear: both;
 	margin: 0 0 1.5em;
 }
-
-
 /* =Media
 ----------------------------------------------- */
 a img {
@@ -540,18 +512,14 @@ img[class*="wp-image-"] {
 }
 .site-main .gallery-columns-4 .gallery-item img {
 }
-
 /* Make sure embeds and iframes fit their containers */
 embed,
 iframe,
 object {
 	max-width: 100%;
 }
-
-
 /* =Navigation
 ----------------------------------------------- */
-
 .site-main [class*="navigation"] {
 	margin: 0 0 1.5em;
 	overflow: hidden;
@@ -565,14 +533,11 @@ object {
 	text-align: right;
 	width: 50%;
 }
-
 .pagination-p {
 	float: left;
 	margin: 20px 10px 20px 0;
 	line-height: 32px;
 }
-
-
 /* =Author Metabox
 ----------------------------------------------- */
 .author-meta .author-avatar {
@@ -588,14 +553,12 @@ object {
 	clear: none;
 	margin-top: 0;
 }
-
 /* =Comments
 ----------------------------------------------- */
 body .comment-form-comment.form-group {
 	margin-right: 0;
 	margin-left: 0;
 }
-
 body .col-sm-7 .comment-form-comment.form-group {
 	margin-right: -15px;
 	margin-left: -15px;
@@ -608,7 +571,6 @@ body .col-sm-7 .comment-form-comment.form-group {
 .col-sm-7 #comment {
 	height: 132px;
 }
-
 .comment-content a {
 	word-wrap: break-word;
 }
@@ -634,30 +596,25 @@ body .comment-reply-title {
 	line-height: 32px;
 	margin: 0;
 }
-
 /* =Widgets
 ----------------------------------------------- */
 .widget {
 	margin: 0 0 1.5em;
 }
-
 /* Make sure select elements fit in widgets */
 .widget select {
 	max-width: 100%;
 }
-
 /* Search widget */
 .widget_search .search-submit {
 	display: none;
 }
-
 /* Widget iframe */
 .widget iframe {
 	width: 100% !important;
 	height: auto;
 	overflow: hidden;
 }
-
 /* Affix Widget */
 .ipt_kb_affix .list-group .list-group-item > .glyphicon {
 	font-size: 15px;
@@ -715,7 +672,6 @@ body .comment-reply-title {
 	font-size: 16px;
 	margin-left: 4px;
 }
-
 /* Social Widget */
 .ipt-kb-social-widget .widget-title span {
 	color: #2A6496;
@@ -785,7 +741,6 @@ body .comment-reply-title {
 	background-color: #82B540;
 	border-color: #82B540;
 }
-
 /* =Footer
 ---------------------------------------------- */
 #colophon {
@@ -796,7 +751,6 @@ body .comment-reply-title {
 	position: relative;
 	background-color: #eee;
 }
-
 #colophon .site-info {
 	text-align: center;
 	font-size: 12px;
@@ -804,14 +758,12 @@ body .comment-reply-title {
 	position: absolute;
 	width: 100%;
 }
-
 /* =Knowledgebase Homepage
 ----------------------------------------------- */
 #main .knowledgebase-title {
 	font-size: 17px;
 	margin-top: 10px;
 }
-
 #main .kb-home-cat-row .glyphicon,
 #main .kb-cat-parent-row .glyphicon {
 	font-size: 16px;
@@ -824,7 +776,6 @@ body .comment-reply-title {
 #main .kb-cat-parent-row [class*="glyphicon-"] {
 	font-size: 15px;
 }
-
 #main .entry-content h1 .glyphicon,
 #main .entry-content h2 .glyphicon,
 #main .entry-content h3 .glyphicon,
@@ -834,7 +785,6 @@ body .comment-reply-title {
 	font-size: inherit;
 	margin-right: 5px;
 }
-
 .kb-post-list .badge {
 	margin-top: 3px;
 }
@@ -845,7 +795,6 @@ body .comment-reply-title {
 	font-size: 14px;
 	font-family: 'Roboto', sans-serif;
 }
-
 /* =Knowledgebase Parent Category
 ----------------------------------------------- */
 #main .kb-parent-category-header {
@@ -875,7 +824,6 @@ body .comment-reply-title {
 #main .kb-scat-title {
 	margin-top: 0;
 }
-
 /* =Thumbnails
 ----------------------------------------------- */
 #main .kb-thumb-small {
@@ -887,13 +835,11 @@ body .comment-reply-title {
 #main .kb-thumb-large {
 	margin-bottom: 10px;
 }
-
 /* =Breadcrumb
 ----------------------------------------------- */
 #breadcrumbs {
 	margin-left: 0;
 }
-
 /* =Archive Page
 ----------------------------------------------- */
 #main .page-header,
@@ -906,13 +852,11 @@ body .comment-reply-title {
 #main footer.entry-meta .meta-data {
 	line-height: 32px;
 }
-
 /* =Singular Page
 ----------------------------------------------- */
 #main .entry-title {
 	margin-top: 0;
 }
-
 /* =Bootstrap Helper
 ----------------------------------------------- */
 .ipt-kb-popover-target {
@@ -960,7 +904,6 @@ body a .label {
 #secondary .nav {
 	margin: 0;
 }
-
 input[type="text"],
 input[type="password"],
 select,
@@ -1092,7 +1035,6 @@ button[disabled].active {
 .list-group-item.active {
 	color: #fff;
 }
-
 /* =Post Content Styles
 ----------------------------------------------- */
 body table {
@@ -1122,7 +1064,6 @@ body blockquote p,
 body code {
 	white-space: normal;
 }
-
 /* =Syntax Highlighter Compatibility
 ------------------------------------------------- */
 .syntaxhighlighter .container:before,
@@ -1147,7 +1088,6 @@ body .syntaxhighlighter table code,
 body .syntaxhighlighter table div {
 	font-size: 12px !important;
 }
-
 /* =Captcha Plugin Compatibility
 ------------------------------------------------- */
 /* Captcha Plugin */
@@ -1179,7 +1119,6 @@ body .syntaxhighlighter table div {
 	font-size: 14px !important;
 	padding: 6px 12px !important;
 }
-
 #secondary .widget .cptch_block label {
 	width: auto;
 	line-height: 2;
@@ -1196,14 +1135,12 @@ body .syntaxhighlighter table div {
 		padding-left: 0;
 	}
 }
-
 /* =Wee little wpstats icon
 ------------------------------------------------- */
 #wpstats {
 	display: block;
 	margin: 0 auto 10px;
 }
-
 /* =Top Navigation
 ------------------------------------------------- */
 #masthead nav.navbar {
@@ -1215,14 +1152,12 @@ body .syntaxhighlighter table div {
 	width: auto;
 	margin-top: -15px;
 }
-
 /* Fine Tune the search and login */
 /* Collapse & Toggle */
 #masthead .navbar-inverse .navbar-toggle {
 	padding-left: 15px;
 	padding-right: 15px;
 }
-
 #masthead .navbar-inverse .navbar-toggle i {
 	font-size: 16px;
 }
@@ -1239,13 +1174,11 @@ body .syntaxhighlighter table div {
 	width: 400px;
 	color: #333;
 }
-
 /* Dropdown header */
 #masthead .dropdown-header a {
 	padding-left: 0;
 	padding-right: 0;
 }
-
 /* Custom breakpoints */
 /* When the buttons are shown */
 @media screen and (max-width: 1280px) {
@@ -1291,7 +1224,6 @@ body .syntaxhighlighter table div {
 		display: block!important;
 		overflow-y: auto !important;
 	}
-
 	/* Dropdown */
 	#masthead .navbar-inverse .navbar-nav .open .dropdown-menu > li > a,
 	#masthead .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
@@ -1347,13 +1279,11 @@ body .syntaxhighlighter table div {
 		color: #eee;
 	}
 }
-
 @media screen and (min-width: 1280px) {
 	/* little animation for the search */
 	#masthead #site-navbar-search .navbar-form {
 		width: 200px;
 	}
-
 	/* Dropdown menu optimization */
 	#masthead .dropdown-menu {
 		min-width: 300px;
@@ -1363,12 +1293,10 @@ body .syntaxhighlighter table div {
 		left: 0;
 		right: auto;
 	}
-
 	/* Multilevel dropdown menu */
 	#masthead .dropdown-submenu {
 		position: relative;
 	}
-
 	#masthead .dropdown-submenu>.dropdown-menu {
 		top: 0;
 		left: 100%;
@@ -1378,11 +1306,9 @@ body .syntaxhighlighter table div {
 		-moz-border-radius: 0 6px 6px;
 		border-radius: 0 6px 6px 6px;
 	}
-
 	#masthead .dropdown-submenu:hover>.dropdown-menu {
 		display: block;
 	}
-
 	#masthead .dropdown-submenu>a:after {
 		display: block;
 		content: " ";
@@ -1396,15 +1322,12 @@ body .syntaxhighlighter table div {
 		margin-top: 5px;
 		margin-right: -10px;
 	}
-
 	#masthead .dropdown-submenu:hover>a:after {
 		border-left-color: #fff;
 	}
-
 	#masthead .dropdown-submenu.pull-left {
 		float: none;
 	}
-
 	#masthead .dropdown-submenu.pull-left>.dropdown-menu {
 		left: -100%;
 		margin-left: 10px;
@@ -1412,7 +1335,6 @@ body .syntaxhighlighter table div {
 		-moz-border-radius: 6px 0 6px 6px;
 		border-radius: 6px 0 6px 6px;
 	}
-
 	/* Split */
 	#masthead .dropdown-split-right {
 		padding: 0;
@@ -1425,7 +1347,6 @@ body .syntaxhighlighter table div {
 		padding-right: 5px;
 	}
 }
-
 /* =Advertisement
 ------------------------------------------------- */
 .title-advertisement,

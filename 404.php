@@ -33,40 +33,40 @@ $main_categories = get_categories( array(
 
 					<div class="row">
 						<div class="col-md-6">
-							<div class="panel panel-info">
-								  <div class="panel-heading">
-										<h3 class="panel-title"><?php _e( 'Recently Published Articles', 'ipt_kb' ); ?></h3>
-								  </div>
-								  <div class="panel-body">
-										<div class="list-group">
-											<?php if ( $recent_posts->have_posts() ) : ?>
-												<?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
-												<?php get_template_part( 'category-templates/content', 'popular' ); ?>
-												<?php endwhile; ?>
-											<?php else : ?>
-												<?php get_template_part( 'category-templates/no-result' ); ?>
-											<?php endif; ?>
-											<?php wp_reset_query(); ?>
-										</div>
-								  </div>
+							<div class="card bg-info bg-opacity-25 text-dark mb-4">
+								<div class="card-header">
+									<h3 class="card-title"><?php _e( 'Recently Published Articles', 'ipt_kb' ); ?></h3>
+								</div>
+								<div class="card-body">
+									<div class="list-group">
+										<?php if ( $recent_posts->have_posts() ) : ?>
+											<?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
+											<?php get_template_part( 'category-templates/content', 'popular' ); ?>
+											<?php endwhile; ?>
+										<?php else : ?>
+											<?php get_template_part( 'category-templates/no-result' ); ?>
+										<?php endif; ?>
+										<?php wp_reset_query(); ?>
+									</div>
+								</div>
 							</div>
 						</div>
 
 						<div class="col-md-6">
-							<div class="panel panel-success">
-								  <div class="panel-heading">
-										<h3 class="panel-title"><?php _e( 'Knowledge Base', 'ipt_kb' ); ?></h3>
-								  </div>
-								  <div class="panel-body">
-										<div class="list-group">
-											<?php foreach( $main_categories as $cat ) : ?>
-											<a rel="bookmark" class="list-group-item kb-list-date kb-post-list" href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>">
-											<span class="badge"><?php echo ipt_kb_total_cat_post_count( $cat->term_id ); ?></span>
-											<?php echo $cat->name; ?>
-											</a>
-											<?php endforeach; ?>
-										</div>
-								  </div>
+							<div class="card bg-success bg-opacity-25 text-dark mb-4">
+								<div class="card-header">
+									<h3 class="card-title"><?php _e( 'Knowledge Base', 'ipt_kb' ); ?></h3>
+								</div>
+								<div class="card-body">
+									<div class="list-group">
+										<?php foreach( $main_categories as $cat ) : ?>
+										<a rel="bookmark" class="list-group-item kb-list-date kb-post-list" href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>">
+										<span class="badge bg-secondary rounded-pill"><?php echo ipt_kb_total_cat_post_count( $cat->term_id ); ?></span>
+										<?php echo $cat->name; ?>
+										</a>
+										<?php endforeach; ?>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

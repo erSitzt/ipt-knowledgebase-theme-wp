@@ -87,7 +87,7 @@ class IPT_KB_Social_Widget extends WP_Widget {
 
 		foreach ( $instance['links'] as $l_key => $lval ) {
 			if ( trim( $lval ) != '' ) {
-				echo '<li class="' . esc_attr( $l_key ) . '"><a href="' . esc_url( $lval ) . '" class="bstooltip" title="' . esc_attr( $this->settings_helper['social_titles'][$l_key] ) . '" data-toggle="tooltip">';
+				echo '<li class="' . esc_attr( $l_key ) . '"><a href="' . esc_url( $lval ) . '" class="bstooltip" title="' . esc_attr( $this->settings_helper['social_titles'][$l_key] ) . '" data-bs-toggle="tooltip">';
 				echo '<i class="glyphicon ' . $this->settings_helper['social_classes'][$l_key] . '"></i>';
 				echo '</a></li>';
 			}
@@ -142,4 +142,4 @@ class IPT_KB_Social_Widget extends WP_Widget {
 	}
 }
 
-add_action( 'widgets_init', create_function( '', "register_widget( 'IPT_KB_Social_Widget' );" ) );
+add_action( 'widgets_init', function() { register_widget( 'IPT_KB_Social_Widget' ); } );
