@@ -4,16 +4,11 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('kb-article-excerpt mb-5 pb-4 border-bottom shadow-sm rounded bg-white'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('kb-article-excerpt mb-5 pb-4 border-bottom shadow-sm rounded'); ?> style="background-color: #f7f7f9;">
 	<header class="entry-header page-header mb-3">
 		<div class="d-flex align-items-center mb-2">
-			<div class="flex-shrink-0 me-3 d-none d-md-block">
-				<span class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width:48px;height:48px;font-size:1.5rem;">
-					<i class="fa-solid fa-file-lines"></i>
-				</span>
-			</div>
 			<div class="flex-grow-1">
-				<h2 class="entry-title h4 mb-1 fw-bold"><a href="<?php the_permalink(); ?>" rel="bookmark" class="link-dark text-decoration-none"><?php the_title(); ?></a></h2>
+				<h2 class="entry-title h3 mb-1 fw-bold"><a href="<?php the_permalink(); ?>" rel="bookmark" class="link-dark text-decoration-none"><?php the_title(); ?></a></h2>
 				<?php if ( 'post' == get_post_type() ) : ?>
 				<div class="entry-meta text-muted small d-flex align-items-center flex-wrap gap-3">
 					<span><i class="fa-regular fa-calendar me-1"></i> <?php echo get_the_date(); ?></span>
@@ -28,11 +23,6 @@
 	</header><!-- .entry-header -->
 
 	<?php if ( has_post_thumbnail() ) : ?>
-	<div class="float-start kb-thumb-medium d-none d-sm-block me-3 mb-2">
-		<a rel="bookmark" href="<?php the_permalink(); ?>" class="thumbnail"><?php the_post_thumbnail( 'ipt_kb_medium', array(
-			'class' => 'img-thumbnail rounded',
-		) ); ?></a>
-	</div>
 	<div class="kb-thumb-large d-block d-sm-none mb-2">
 		<a rel="bookmark" href="<?php the_permalink(); ?>" class="thumbnail"><?php the_post_thumbnail( 'ipt_kb_large', array(
 			'class' => 'img',
