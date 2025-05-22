@@ -132,8 +132,9 @@ class IPT_KB_BBP_Login_Widget extends WP_Widget {
 						<div><i class="fa fa-user"></i> <?php _e( 'Forum Role', 'ipt_kb' ); ?></div>
 						<span class="badge bg-primary rounded-pill"><?php echo bbp_get_user_display_role( bbp_get_current_user_id() ); ?></span>
 					</a>
-					<a href="<?php bbp_user_topics_created_url( bbp_get_current_user_id() ); ?>" class="list-group-item bbp-user-topic-count <?php if ( bbp_is_user_home() && bbp_is_single_user_topics() ) echo 'active'; ?>">
-						<span class="glyphicon ipt-icomoon-bubbles4"></span> <?php printf( __( '%s Topics Started', 'ipt_kb' ), '<span class="badge">' . bbp_get_user_topic_count_raw( bbp_get_current_user_id() ) . '</span>' ); ?>
+					<a href="<?php bbp_user_topics_created_url( bbp_get_current_user_id() ); ?>" class="list-group-item bbp-user-topic-count d-flex justify-content-between align-items-center <?php if ( bbp_is_user_home() && bbp_is_single_user_topics() ) echo 'active'; ?>">
+						<div><i class="fa fa-comments"></i> <?php _e( 'Topics Started', 'ipt_kb' ); ?></div>
+						<span class="badge bg-primary rounded-pill"><?php echo bbp_get_user_topic_count_raw( bbp_get_current_user_id() ); ?></span>
 					</a>
 					<a href="<?php bbp_user_replies_created_url( bbp_get_current_user_id() ); ?>" class="list-group-item bbp-user-reply-count <?php if ( bbp_is_user_home() && bbp_is_single_user_replies() ) echo 'active'; ?>">
 						<span class="glyphicon ipt-icomoon-reply"></span> <?php printf( __( '%s Replies Created', 'ipt_kb' ), '<span class="badge">' . bbp_get_user_reply_count_raw( bbp_get_current_user_id() ) . '</span>' ); ?>
