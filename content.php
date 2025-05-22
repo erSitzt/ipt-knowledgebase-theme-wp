@@ -4,11 +4,11 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('kb-article-excerpt mb-5 pb-4 border-bottom shadow-sm rounded'); ?> style="background-color: #f7f7f9;">
+<article id="post-<?php the_ID(); ?>" <?php post_class('kb-article-excerpt mb-5 pb-4 border-bottom shadow-sm rounded'); ?> style="background-color:#e0e1e3;">
 	<header class="entry-header page-header mb-3">
 		<div class="d-flex align-items-center mb-2">
 			<div class="flex-grow-1">
-				<h2 class="entry-title h3 mb-1 fw-bold"><a href="<?php the_permalink(); ?>" rel="bookmark" class="link-dark text-decoration-none"><?php the_title(); ?></a></h2>
+				<h2 class="entry-title h2 mb-1 fw-bold"><a href="<?php the_permalink(); ?>" rel="bookmark" class="link-dark text-decoration-none"><?php the_title(); ?></a></h2>
 				<?php if ( 'post' == get_post_type() ) : ?>
 				<div class="entry-meta text-muted small d-flex align-items-center flex-wrap gap-3">
 					<span><i class="fa-regular fa-calendar me-1"></i> <?php echo get_the_date(); ?></span>
